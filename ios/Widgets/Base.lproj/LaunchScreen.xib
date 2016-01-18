@@ -11,40 +11,37 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Created by Harish V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created by Harish V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="8ie-xW-0ye">
                     <rect key="frame" x="20" y="439" width="441" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="AD3-DR-DBW"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.99610143899917603" green="0.99227577447891235" blue="0.99203377962112427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoneySmartLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Si2-1v-e5b">
-                    <rect key="frame" x="120" y="123" width="240" height="128"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="CALCULATORS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-Fq-Jgp">
-                    <rect key="frame" x="197" y="259" width="87" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MoneySmart.sg Calculators" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-Fq-Jgp">
+                    <rect key="frame" x="129" y="135" width="224" height="105"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="224" id="JaX-rS-ddk"/>
+                        <constraint firstAttribute="height" constant="105" id="f5g-71-GD4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" red="0.99610143899917603" green="0.99227577447891235" blue="0.99203377962112427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.25427493453025818" green="0.065636858344078064" blue="0.30614274740219116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="a2J-Fq-Jgp" firstAttribute="top" secondItem="Si2-1v-e5b" secondAttribute="bottom" constant="8" id="0Eq-JM-fJ5"/>
-                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="Kzo-t9-V3l"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="MfP-vx-nX0"/>
-                <constraint firstAttribute="bottom" secondItem="Si2-1v-e5b" secondAttribute="bottom" constant="229" id="NcB-MZ-gN5"/>
-                <constraint firstAttribute="centerX" secondItem="8ie-xW-0ye" secondAttribute="centerX" id="ZEH-qu-HZ9"/>
-                <constraint firstAttribute="trailing" secondItem="Si2-1v-e5b" secondAttribute="trailing" constant="120" id="e0Z-13-Eln"/>
-                <constraint firstItem="8ie-xW-0ye" firstAttribute="top" secondItem="a2J-Fq-Jgp" secondAttribute="bottom" constant="159" id="m54-wN-PRl"/>
-                <constraint firstItem="Si2-1v-e5b" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="120" id="qgh-rX-dWt"/>
-                <constraint firstItem="Si2-1v-e5b" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="123" id="ud6-ng-E9O"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="3UO-vn-GwK"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="H1U-pL-7YF"/>
+                <constraint firstItem="8ie-xW-0ye" firstAttribute="centerX" secondItem="a2J-Fq-Jgp" secondAttribute="centerX" id="I8i-6u-KWI"/>
+                <constraint firstItem="a2J-Fq-Jgp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="135" id="Mxf-NG-S1D"/>
+                <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="20" id="eyI-L9-6Nq"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
-    <resources>
-        <image name="MoneySmartLogo" width="360" height="66"/>
-    </resources>
 </document>

@@ -31,6 +31,8 @@ var Widgets = React.createClass({
     return (
       <NavigatorIOS
         style={styles.container}
+        translucent= {true}
+        titleTextColor={'navy'}
         initialRoute={{
             title: 'MoneySmart Calculators',
             component: HomePage

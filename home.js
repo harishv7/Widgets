@@ -16,17 +16,23 @@ var {
 
 var  calculatorsList = [
 {
-	title: 'Mortgage Calculator'
+	title: 'Mortgage Calculator',
+	desc: 'Calculate your mortgage payments with this calculator'
 }, {
-	title: 'Affordability Calculator'
+	title: 'Affordability Calculator',
+	desc: 'Calculator your loan affordability and find the maximum loan you can get'
 }, {
-	title: 'ABSD Calculator'
+	title: 'ABSD Calculator',
+	desc: 'Calculate Additional Buyer Stamp Duty on your property purchase'
 }, {
-	title: 'Compound Interest Calculator'
+	title: 'Compound Interest Calculator',
+	desc: 'Calculate compound interest with inflation accounted for'
 }, {
-	title: 'Housing Payment Calculator'
+	title: 'Housing Payment Calculator',
+	desc: 'Calculate monthly payment for your property'
 }, {
-	title: 'Investment Calculator'
+	title: 'Investment Calculator',
+	desc: 'Calculate expected monthly revenue and breakdown of your property investment'
 }
 ];
 
@@ -34,13 +40,17 @@ var CalculatorBox = React.createClass({
 	render: function() {
 		return (
 			<TouchableHighlight
-				underlayColor = '#f2f2f2'
+				underlayColor = 'gray'
 				onPress={this.props.onPress} >
-			<View style={styles.calculatorBox}>
-			<Image style={styles.calculatorIcon}
-			source={require('./img/icon-building.png')} />
-			<Text style={styles.calculatorTitle}>{this.props.title}</Text>
-			</View>
+				<View style={styles.calculatorBox}>
+					{this.props.image}					
+					<View style={styles.calculatorBoxColumn}>
+						<Text style={styles.calculatorTitle}>{this.props.title}</Text>
+						<Text style={styles.calculatorDescription}>{this.props.desc}</Text>
+					</View>
+					<Image style={styles.rightButton}
+					source={require('./img/right.png')} />
+				</View>
 			</TouchableHighlight>
 			);
 	}
@@ -55,20 +65,20 @@ var HomePage = React.createClass({
 					<Image style={styles.logo}
 					source={require('./img/moneysmart.jpg')} />
 					</View>
-					<View style={styles.row}>
-						<CalculatorBox title={calculatorsList[0].title} key={0} onPress = {this.pushMortgage} />
-						<CalculatorBox title={calculatorsList[1].title} key={1} onPress = {this.pushAffordability} />
-					</View>
+					
+						<CalculatorBox title={calculatorsList[0].title} desc={calculatorsList[0].desc} key={0} onPress = {this.pushMortgage} image={<Image style={styles.calculatorIcon} source={require('./img/card.png')} />} />
+						<CalculatorBox title={calculatorsList[1].title} desc={calculatorsList[1].desc} key={1} onPress = {this.pushAffordability} image={<Image style={styles.calculatorIcon} source={require('./img/weight-icon.png')} />} />
+					
 
-					<View style={styles.row}>
-						<CalculatorBox title={calculatorsList[2].title} key={2} onPress = {this.pushAbsd} />
-						<CalculatorBox title={calculatorsList[3].title} key={3} onPress = {this.pushCompoundInterest} />
-					</View>
+					
+						<CalculatorBox title={calculatorsList[2].title} desc={calculatorsList[2].desc} key={2} onPress = {this.pushAbsd} image={<Image style={styles.calculatorIcon} source={require('./img/umbrella-icon.png')} />} />
+						<CalculatorBox title={calculatorsList[3].title} desc={calculatorsList[3].desc} key={3} onPress = {this.pushCompoundInterest} image={<Image style={styles.calculatorIcon} source={require('./img/like-icon.png')} />} />
+					
 
-					<View style={styles.row}>
-						<CalculatorBox title={calculatorsList[4].title} key={4} onPress = {this.pushHousingPayment} />
-						<CalculatorBox title={calculatorsList[5].title} key={5} onPress = {this.pushInvestment} />
-					</View>
+					
+						<CalculatorBox title={calculatorsList[4].title} desc={calculatorsList[4].desc} key={4} onPress = {this.pushHousingPayment} image={<Image style={styles.calculatorIcon} source={require('./img/check-icon.png')} />} />
+						<CalculatorBox title={calculatorsList[5].title} desc={calculatorsList[5].desc} key={5} onPress = {this.pushInvestment}  image={<Image style={styles.calculatorIcon} source={require('./img/card.png')} />} />
+						
 				</ScrollView>
 			</View>
 		);
@@ -121,30 +131,54 @@ var styles = StyleSheet.create({
 	},
 	logo: {
 		resizeMode: 'contain',
-		justifyContent: 'center',
-		alignItems: 'center',
-		margin: 10
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start',
+		margin: 10,
+		borderRadius: 10,
+		flex: 1
 	},
 	calculatorBox: {
-		justifyContent: 'center',
+		justifyContent: 'flex-start',
 		alignItems: 'center',
-		borderWidth: 0.5,
-		borderRadius: 10,
-		borderColor: '#3498db',
+		borderTopWidth: 0.5,
+		borderBottomWidth: 0.5,
+		borderColor: '#DBDDDE',
 		padding: 10,
-		height: 150,
-		width: 150
+		backgroundColor: 'white',
+		flexDirection: 'row'
+	},
+	rightButton: {
+		flex: 1,
+		width: 20,
+		height: 20,
+		justifyContent: 'space-around',
+		alignItems: 'center',
+		resizeMode: 'contain'
+	},
+	calculatorBoxColumn: {
+		flex: 5,
+		flexDirection: 'column',
+		paddingLeft: 7
 	},
 	calculatorTitle: {
-		justifyContent: 'center',
-		alignItems: 'center',
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start',
+		backgroundColor: 'transparent',
+		padding: 5
+	},
+	calculatorDescription: {
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start',
 		backgroundColor: 'transparent',
 		padding: 5,
-		flex: 1,
-		textAlign: 'center'
+		color: 'gray',
+		fontSize: 12
 	},
 	calculatorIcon: {
-		flex: 3
+		flex: 1,
+		resizeMode: 'contain',
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start'
 	},
 	row: {
 		flexDirection: 'row',

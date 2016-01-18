@@ -79,6 +79,7 @@ var MortgageCalculator = React.createClass({
 						<TextInput style={styles.input} 
 							 onChangeText={(price) => this.setState({propertyPrice: price})}
 							 keyboardType='numeric'
+							 placeholder = '1000000'
 							 value={this.state.propertyPrice.toString()}
 						/>
 					</View>
@@ -86,6 +87,7 @@ var MortgageCalculator = React.createClass({
 						<Text style={styles.inputLabel}>Margin of Finance </Text>
 						<TextInput style={styles.input} 
 						keyboardType='numeric'
+						placeholder='80'
 						onChangeText={(marginOfFinance) => this.setState({marginOfFinance})}
 						value={this.state.marginOfFinance.toString()}
 						/>
@@ -94,6 +96,7 @@ var MortgageCalculator = React.createClass({
 						<Text style={styles.inputLabel}>Interest Rate </Text>
 						<TextInput style={styles.input} 
 						keyboardType='numeric'
+						placeholder='1.2'
 						onChangeText={(interestRate) => this.setState({interestRate})}
 						value={this.state.interestRate.toString()}
 						/>
@@ -102,6 +105,7 @@ var MortgageCalculator = React.createClass({
 						<Text style={styles.inputLabel}>Loan Term (Years) </Text>
 						<TextInput style={styles.input} 
 						keyboardType='numeric'
+						placeholder='35'
 						onChangeText={(loanTerm) => this.setState({loanTerm})}
 						value={this.state.loanTerm.toString()}
 						/>
@@ -122,11 +126,11 @@ var MortgageCalculator = React.createClass({
 					</View>
 					<View style={styles.row}>
 						<Text style={styles.resultLabel}>Monthly Payment</Text>
-						<Text style={styles.resultOutput}>{numberWithCommas(this.state.monthlyPayment)}</Text>
+						<Text style={styles.resultOutput}>{'$' + numberWithCommas(this.state.monthlyPayment)}</Text>
 					</View>
 					<View style={styles.row}>
 						<Text style={styles.resultLabel}>Loan Amount</Text>
-						<Text style={styles.resultOutput}>{numberWithCommas(this.state.loanAmt)}</Text>
+						<Text style={styles.resultOutput}>{'$' + numberWithCommas(this.state.loanAmt)}</Text>
 					</View>
 					<View style={styles.row}>
 						<Text style={styles.resultLabel}>Number of Payments</Text>
@@ -134,11 +138,11 @@ var MortgageCalculator = React.createClass({
 					</View>
 					<View style={styles.row}>
 						<Text style={styles.resultLabel}>Total Payments</Text>
-						<Text style={styles.resultOutput}>{numberWithCommas(this.state.totalPayments)}</Text>
+						<Text style={styles.resultOutput}>{'$' + numberWithCommas(this.state.totalPayments)}</Text>
 					</View>
 					<View style={styles.row}>
 						<Text style={styles.resultLabel}>Total Interest</Text>
-						<Text style={styles.resultOutput}>{numberWithCommas(this.state.totalInterests)}</Text>
+						<Text style={styles.resultOutput}>{'$' + numberWithCommas(this.state.totalInterests)}</Text>
 					</View>
 				</View>
 
@@ -177,7 +181,7 @@ var styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		paddingTop: 30,
-		backgroundColor: '#f2f2f2'
+		backgroundColor: 'white'
 	},
 	headingWrapper: {
 		alignItems: 'flex-start',
@@ -213,7 +217,8 @@ var styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center',
-		fontSize: 14
+		fontSize: 14,
+		backgroundColor: 'white'
 	},
 	slider: {
 		height: 10,

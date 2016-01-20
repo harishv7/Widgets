@@ -2,6 +2,11 @@
 
 var React = require('react-native');
 var MortgageCalculator = require('./mortgageCalc.js');
+var ABSDCalculator = require('./absdCalc.js');
+var AffordabilityCalculator = require('./affordabilityCalc');
+var HousingPaymentCalculator = require('./housingPaymentCalc');
+var InvestmentCalculator = require('./investmentCalc');
+var CompoundInterestCalculator = require('./compoundInterestCalc');
 
 var {
 	AppRegistry,
@@ -11,7 +16,8 @@ var {
 	ScrollView,
 	ListView,
 	TouchableHighlight,
-	Image
+	Image,
+	LinkingIOS
 } = React;
 
 var  calculatorsList = [
@@ -56,6 +62,26 @@ var CalculatorBox = React.createClass({
 	}
 });
 
+var ContactBox = React.createClass({
+	render: function() {
+		return (
+			<TouchableHighlight
+				underlayColor = 'gray'
+				onPress={this.props.onPress} >
+				<View style={styles.calculatorBox}>
+					{this.props.image}					
+					<View style={styles.calculatorBoxColumn}>
+						<Text style={styles.calculatorTitle}>{this.props.title}</Text>
+						<Text style={styles.calculatorDescription}>{this.props.desc}</Text>
+					</View>
+					<Image style={styles.rightButton}
+					source={require('./img/right.png')} />
+				</View>
+			</TouchableHighlight>
+		);
+	}
+});
+
 var HomePage = React.createClass({
 	render: function() {
 		return (
@@ -65,22 +91,36 @@ var HomePage = React.createClass({
 					<Image style={styles.logo}
 					source={require('./img/moneysmart.jpg')} />
 					</View>
-					
+						<View style={styles.section}>
+						<Text style={styles.sectionHeading}>Calculators</Text>
+						</View>
 						<CalculatorBox title={calculatorsList[0].title} desc={calculatorsList[0].desc} key={0} onPress = {this.pushMortgage} image={<Image style={styles.calculatorIcon} source={require('./img/card.png')} />} />
 						<CalculatorBox title={calculatorsList[1].title} desc={calculatorsList[1].desc} key={1} onPress = {this.pushAffordability} image={<Image style={styles.calculatorIcon} source={require('./img/weight-icon.png')} />} />
 					
-
-					
 						<CalculatorBox title={calculatorsList[2].title} desc={calculatorsList[2].desc} key={2} onPress = {this.pushAbsd} image={<Image style={styles.calculatorIcon} source={require('./img/umbrella-icon.png')} />} />
 						<CalculatorBox title={calculatorsList[3].title} desc={calculatorsList[3].desc} key={3} onPress = {this.pushCompoundInterest} image={<Image style={styles.calculatorIcon} source={require('./img/like-icon.png')} />} />
-					
-
-					
+							
 						<CalculatorBox title={calculatorsList[4].title} desc={calculatorsList[4].desc} key={4} onPress = {this.pushHousingPayment} image={<Image style={styles.calculatorIcon} source={require('./img/check-icon.png')} />} />
 						<CalculatorBox title={calculatorsList[5].title} desc={calculatorsList[5].desc} key={5} onPress = {this.pushInvestment}  image={<Image style={styles.calculatorIcon} source={require('./img/card.png')} />} />
+
+						<View style={styles.section}>
+						<Text style={styles.sectionHeading}>Feedback</Text>
+						</View>
+						<CalculatorBox title={'MoneySmart.sg'} desc={'Visit our website to get the best deals on loans, insurance and credit cards. '} key={6} onPress={this.pressWebsite} image={<Image style={styles.calculatorIcon} source={require('./img/website.png')} />} />
+						<CalculatorBox title={'Email'} desc={'Send us an email with your feedback'} key={7} onPress={this.pressFeedback} image={<Image style={styles.calculatorIcon} source={require('./img/email.png')} />} />
 						
 				</ScrollView>
 			</View>
+		);
+	},
+	pressWebsite: function() {
+		return (
+			LinkingIOS.openURL('http://www.moneysmart.sg/')
+		);
+	},
+	pressFeedback: function() {
+		return (
+			LinkingIOS.openURL('mailto:admin@moneysmart.sg')
 		);
 	},
 	pushMortgage: function() {
@@ -91,32 +131,32 @@ var HomePage = React.createClass({
 	},
 	pushAffordability: function() {
 		this.props.navigator.push({
-			title: 'Mortgage Calculator',
-			component: MortgageCalculator
+			title: 'Affordability Calculator',
+			component: AffordabilityCalculator
 		})
 	},
 	pushAbsd: function() {
 		this.props.navigator.push({
-			title: 'Mortgage Calculator',
-			component: MortgageCalculator
+			title: 'ABSD Calculator',
+			component: ABSDCalculator
 		})
 	},
 	pushCompoundInterest: function() {
 		this.props.navigator.push({
-			title: 'Mortgage Calculator',
-			component: MortgageCalculator
+			title: 'Compound Interest Calculator',
+			component: CompoundInterestCalculator
 		})
 	},	
 	pushHousingPayment: function() {
 		this.props.navigator.push({
-			title: 'Mortgage Calculator',
-			component: MortgageCalculator
+			title: 'Housing Payment Calculator',
+			component: HousingPaymentCalculator
 		})
 	},
 	pushInvestment: function() {
 		this.props.navigator.push({
-			title: 'Mortgage Calculator',
-			component: MortgageCalculator
+			title: 'Investment Calculator',
+			component: InvestmentCalculator
 		})
 	}
 });
@@ -129,10 +169,11 @@ var styles = StyleSheet.create({
 		backgroundColor:'#5151f4',
 		padding: 10
 	},
+	logoWrapper: {
+		flex: 1
+	},
 	logo: {
 		resizeMode: 'contain',
-		justifyContent: 'flex-start',
-		alignItems: 'flex-start',
 		margin: 10,
 		borderRadius: 10,
 		flex: 1
@@ -146,6 +187,17 @@ var styles = StyleSheet.create({
 		padding: 10,
 		backgroundColor: 'white',
 		flexDirection: 'row'
+	},
+	sectionHeading: {
+		fontSize: 18,
+		flex:1,
+		fontWeight: '300',
+		color: 'gray',
+		backgroundColor: '#f4f4f4',
+		paddingLeft: 5
+	},
+	section: {
+		
 	},
 	rightButton: {
 		flex: 1,

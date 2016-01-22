@@ -37,6 +37,9 @@ var InvestmentCalculator = React.createClass({
 			roic: 0
 		};
 	},
+	componentDidMount: function() {
+		this.calculateInvestment();
+	},
 	render: function() {
 		var sectionDesc = 'Use the calculator to calculate your return from investments.';
 		return (

@@ -6,7 +6,7 @@
 
 var React = require('react-native');
 var HomePage = require('./home');
-var MortgageCalculator = require('./mortgageCalc.js');
+var MortgageCalculator = require('./files/mortgageCalc.js');
 
 var {
   AppRegistry,

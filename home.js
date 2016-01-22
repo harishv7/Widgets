@@ -1,12 +1,12 @@
 'use strict';
 
 var React = require('react-native');
-var MortgageCalculator = require('./mortgageCalc.js');
-var ABSDCalculator = require('./absdCalc.js');
-var AffordabilityCalculator = require('./affordabilityCalc');
-var HousingPaymentCalculator = require('./housingPaymentCalc');
-var InvestmentCalculator = require('./investmentCalc');
-var CompoundInterestCalculator = require('./compoundInterestCalc');
+var MortgageCalculator = require('./files/mortgageCalc.js');
+var ABSDCalculator = require('./files/absdCalc.js');
+var AffordabilityCalculator = require('./files/affordabilityCalc');
+var HousingPaymentCalculator = require('./files/housingPaymentCalc');
+var InvestmentCalculator = require('./files/investmentCalc');
+var CompoundInterestCalculator = require('./files/compoundInterestCalc');
 
 var {
 	AppRegistry,
@@ -55,7 +55,7 @@ var CalculatorBox = React.createClass({
 						<Text style={styles.calculatorDescription}>{this.props.desc}</Text>
 					</View>
 					<Image style={styles.rightButton}
-					source={require('./img/right.png')} />
+					source={require('./files/img/right.png')} />
 				</View>
 			</TouchableHighlight>
 			);
@@ -75,7 +75,7 @@ var ContactBox = React.createClass({
 						<Text style={styles.calculatorDescription}>{this.props.desc}</Text>
 					</View>
 					<Image style={styles.rightButton}
-					source={require('./img/right.png')} />
+					source={require('./files/img/right.png')} />
 				</View>
 			</TouchableHighlight>
 		);
@@ -89,25 +89,25 @@ var HomePage = React.createClass({
 				<ScrollView>
 					<View style={styles.logoWrapper} >
 					<Image style={styles.logo}
-					source={require('./img/moneysmart.jpg')} />
+					source={require('./files/img/moneysmart.jpg')} />
 					</View>
 						<View style={styles.section}>
 						<Text style={styles.sectionHeading}>Calculators</Text>
 						</View>
-						<CalculatorBox title={calculatorsList[0].title} desc={calculatorsList[0].desc} key={0} onPress = {this.pushMortgage} image={<Image style={styles.calculatorIcon} source={require('./img/card.png')} />} />
-						<CalculatorBox title={calculatorsList[1].title} desc={calculatorsList[1].desc} key={1} onPress = {this.pushAffordability} image={<Image style={styles.calculatorIcon} source={require('./img/weight-icon.png')} />} />
+						<CalculatorBox title={calculatorsList[0].title} desc={calculatorsList[0].desc} key={0} onPress = {this.pushMortgage} image={<Image style={styles.calculatorIcon} source={require('./files/img/card.png')} />} />
+						<CalculatorBox title={calculatorsList[1].title} desc={calculatorsList[1].desc} key={1} onPress = {this.pushAffordability} image={<Image style={styles.calculatorIcon} source={require('./files/img/weight-icon.png')} />} />
 					
-						<CalculatorBox title={calculatorsList[2].title} desc={calculatorsList[2].desc} key={2} onPress = {this.pushAbsd} image={<Image style={styles.calculatorIcon} source={require('./img/umbrella-icon.png')} />} />
-						<CalculatorBox title={calculatorsList[3].title} desc={calculatorsList[3].desc} key={3} onPress = {this.pushCompoundInterest} image={<Image style={styles.calculatorIcon} source={require('./img/like-icon.png')} />} />
+						<CalculatorBox title={calculatorsList[2].title} desc={calculatorsList[2].desc} key={2} onPress = {this.pushAbsd} image={<Image style={styles.calculatorIcon} source={require('./files/img/umbrella-icon.png')} />} />
+						<CalculatorBox title={calculatorsList[3].title} desc={calculatorsList[3].desc} key={3} onPress = {this.pushCompoundInterest} image={<Image style={styles.calculatorIcon} source={require('./files/img/like-icon.png')} />} />
 							
-						<CalculatorBox title={calculatorsList[4].title} desc={calculatorsList[4].desc} key={4} onPress = {this.pushHousingPayment} image={<Image style={styles.calculatorIcon} source={require('./img/check-icon.png')} />} />
-						<CalculatorBox title={calculatorsList[5].title} desc={calculatorsList[5].desc} key={5} onPress = {this.pushInvestment}  image={<Image style={styles.calculatorIcon} source={require('./img/card.png')} />} />
+						<CalculatorBox title={calculatorsList[4].title} desc={calculatorsList[4].desc} key={4} onPress = {this.pushHousingPayment} image={<Image style={styles.calculatorIcon} source={require('./files/img/check-icon.png')} />} />
+						<CalculatorBox title={calculatorsList[5].title} desc={calculatorsList[5].desc} key={5} onPress = {this.pushInvestment}  image={<Image style={styles.calculatorIcon} source={require('./files/img/card.png')} />} />
 
 						<View style={styles.section}>
 						<Text style={styles.sectionHeading}>Feedback</Text>
 						</View>
-						<CalculatorBox title={'MoneySmart.sg'} desc={'Visit our website to get the best deals on loans, insurance and credit cards. '} key={6} onPress={this.pressWebsite} image={<Image style={styles.calculatorIcon} source={require('./img/website.png')} />} />
-						<CalculatorBox title={'Email'} desc={'Send us an email with your feedback'} key={7} onPress={this.pressFeedback} image={<Image style={styles.calculatorIcon} source={require('./img/email.png')} />} />
+						<CalculatorBox title={'MoneySmart.sg'} desc={'Visit our website to get the best deals on loans, insurance and credit cards. '} key={6} onPress={this.pressWebsite} image={<Image style={styles.calculatorIcon} source={require('./files/img/website.png')} />} />
+						<CalculatorBox title={'Email'} desc={'Send us an email with your feedback'} key={7} onPress={this.pressFeedback} image={<Image style={styles.calculatorIcon} source={require('./files/img/email.png')} />} />
 						
 				</ScrollView>
 			</View>
